@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Namecontextprovider from './namecontextprovider';
+import Students from './listofstudents';
+import Favourites from './favourites';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 function App() {
+    
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <Namecontextprovider>
+        <BrowserRouter>
+        <Routes>
+      
+        <Route path='/' element={<Students></Students>}></Route>
+        <Route path='/favourites' element={<Favourites></Favourites>}></Route>
+      
+      </Routes>
+      </BrowserRouter>
+      </Namecontextprovider>
     </div>
   );
 }
 
 export default App;
+
